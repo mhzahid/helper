@@ -1,0 +1,43 @@
+/**
+*
+* to hide default overflow scrollbar
+*
+*/
+@mixin hideScrollBar {
+  overflow: auto !important;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/**
+*
+* to create scroll snap to child element 
+* this is for X axis / horizontal
+*
+*/
+@mixin scrollSnapX {
+  overflow-x: scroll !important;
+  overflow-y: hidden !important;
+  scroll-snap-type: x mandatory;
+
+  > * {
+    scroll-snap-align: center;
+  }
+}
+
+/**
+*
+* this is for truncate multi-line text
+*
+*/
+@mixin lineClamp($line) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
